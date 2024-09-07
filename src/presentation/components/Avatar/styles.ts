@@ -5,6 +5,10 @@ export const styles = StyleSheet.create({
   avatar: {
     borderRadius: 999, 
   },
+  xSmall: {
+    width: 32,
+    height: 32,
+  },
   small: {
     width: 16 + 24,
     height: 16 + 24,

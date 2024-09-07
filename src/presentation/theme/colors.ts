@@ -4,6 +4,7 @@ export const colors = {
   none: "transparent",
 
   primary: {
+    1: "#f5f5f5",
     50: "#e7fdf9",
     100: "#b6f8ec",
     200: "#92f4e2",

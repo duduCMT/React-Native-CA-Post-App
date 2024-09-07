@@ -6,6 +6,8 @@ import { styles } from "./styles";
 export const Avatar = ({ border = false, size = "medium", uri, alt, ...rest }: AvatarProps) => {
   const sizeStyle = useMemo(() => {
     switch (size) {
+      case "xSmall":
+        return styles.xSmall;
       case "small":
         return styles.small;
       case "medium":
