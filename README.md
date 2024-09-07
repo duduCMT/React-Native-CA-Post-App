@@ -23,6 +23,7 @@ Projeto para prática e aprendizado das libs do Expo mais recentes (2023 e 2024)
 ## 📚 Principais Libs Utilizadas
 
 - [Expo Router](https://docs.expo.dev/router/introduction/)
+- [Expo Linear Gradient](https://docs.expo.dev/versions/latest/sdk/linear-gradient/)
 
 ## 🔎 Instruções para rodar o projeto
 📌 **Pré requisitos:**

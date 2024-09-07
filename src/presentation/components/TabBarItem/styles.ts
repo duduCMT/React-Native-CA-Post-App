@@ -24,7 +24,7 @@ export const styles = StyleSheet.create({
     height: 16 + 24 + 16,
     backgroundColor: theme.colors.primary[500],
     borderRadius: 999,
-    elevation: 2,
+    elevation: 3,
     shadowColor: theme.colors.neutral[200],
   },
 });

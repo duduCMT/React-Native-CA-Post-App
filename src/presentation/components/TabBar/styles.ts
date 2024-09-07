@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
     backgroundColor: theme.colors.white,
     borderRadius: 999,
     paddingHorizontal: 8,
-    elevation: 2,
+    elevation: 3,
     shadowColor: theme.colors.neutral[200],
   },
   addButtonArea: {
