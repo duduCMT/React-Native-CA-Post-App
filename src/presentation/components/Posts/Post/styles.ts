@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
     padding: 12,
     borderRadius: 16,
     gap: 12,
+    elevation: 1,
   },
   text: {
     fontSize: 12,

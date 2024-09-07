@@ -5,6 +5,7 @@ import { Text } from "@/presentation/components/Text";
 import { PostProps } from "./types";
 import { styles } from "./styles";
 import { PostHeader } from "../PostHeader";
+import { PostImage } from "../PostImage";
 
 export const Post = ({ body, time, userAvatar, userName, image }: PostProps) => {
   return (
@@ -13,6 +14,14 @@ export const Post = ({ body, time, userAvatar, userName, image }: PostProps) => 
       <Text style={styles.text}>
         {body}
       </Text>
+      {
+        image && (
+          <PostImage 
+            uri={image}
+          />
+        )
+      }
+      
     </View>
   )
 }

@@ -2,6 +2,7 @@ import { theme } from "@/presentation/theme";
 import { StyleSheet } from "react-native";
 
 import { Dimensions } from 'react-native';
+import { TabBarConstants } from "./constants";
 
 export const styles = StyleSheet.create({
   container: {
@@ -16,7 +17,7 @@ export const styles = StyleSheet.create({
   content: {
     flexDirection: "row",
     gap: 8,
-    marginBottom: 16,
+    marginBottom: TabBarConstants.TAB_BAR_PADDING_BOTTOM,
     marginHorizontal: 16,
   },
   main: {

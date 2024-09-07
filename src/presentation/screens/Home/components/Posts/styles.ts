@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: theme.paddings.screen.horizontal,
     gap: 8,
+    elevation: 1,
   },
   title: {
     fontSize: 14,

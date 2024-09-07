@@ -1,5 +1,5 @@
 import { LinearGradient } from "expo-linear-gradient"
-import { Text, View } from "react-native"
+import { ScrollView, Text, View } from "react-native"
 import { styles } from "./styles"
 import { theme } from "@/presentation/theme"
 import { HomeHeader } from "./components/HomeHeader"
@@ -15,11 +15,16 @@ export const HomeScreen = () => {
       style={styles.container}
     >
       <SafeAreaView style={{ flex: 1 }}>
-        <HomeHeader />
-        <View style={styles.content}>
-          <Stories />
-          <Posts />
-        </View>
+        <ScrollView 
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.scrollViewContent}
+        >
+          <HomeHeader />
+          <View style={styles.content}>
+            <Stories />
+            <Posts />
+          </View>
+        </ScrollView>
       </SafeAreaView>
     </LinearGradient>
   )

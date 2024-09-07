@@ -4,11 +4,12 @@ import { ExpoMaterialIcons } from "../ExpoMaterialIcons"
 import { theme } from "@/presentation/theme"
 import { styles } from "./styles"
 import { useMemo } from "react"
+import { TabBarConstants } from "../TabBar/constants"
 
 export const TabBarItem = ({ icon, isFocused, type = "regular", ...rest }: TabBarItemProps) => {
   const containerStyle = useMemo(() => [styles.container, type === "regular" ? styles.regularButton : styles.primaryButton], [type])
   
-  const iconSize = useMemo(() => type === "regular" ? 24 : 28, [type])
+  const iconSize = useMemo(() => type === "regular" ? TabBarConstants.REGULAR_ICON_SIZE : TabBarConstants.PRIMARY_ICON_SIZE, [type])
 
   const iconColor = useMemo(() => {
     if(isFocused) {
