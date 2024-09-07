@@ -43,7 +43,7 @@ Antes de executar o app, é importante configurar o [json-server](https://www.np
 ```
 $ ipconfig
 ```
-1. O Windows irá exibir uma lista de ip's válidos na sua máquina. Você deve copiar o Endereço ``IPv4``. 
+2. O Windows irá exibir uma lista de ip's válidos na sua máquina. Você deve copiar o Endereço ``IPv4``. 
 
 <div align="center">
   <img 
@@ -51,11 +51,10 @@ $ ipconfig
   />
 </div>
 
-
-2. Crie o arquivo config.json na pasta server: 
+3. Crie o arquivo config.json na pasta server: 
 ``./server/config.json``. ([Link](https://github.com/duduCMT/React-Native-Marvel/blob/master/server))
 
-3. No arquivo, coloque o seguinte conteúdo:
+4. No arquivo, coloque o seguinte conteúdo:
 ```json
 {
   "host": "",
@@ -64,22 +63,26 @@ $ ipconfig
 }
 ``` 
 
-4. No valor de `host` do json coloque o ip copiado anteriormente e salve o arquivo.
+5. No valor de `host` do json coloque o ip copiado anteriormente e salve o arquivo.
    
-5. Por fim, devemos informar ao App o novo endereço do servidor.
+6. Por fim, devemos informar ao App o novo endereço do servidor.
    
-6. Crie o arquivo ``.env`` na raís do projeto e adicione a variável `EXPO_PUBLIC_API_URL` conforme o .env.exemple.
+7. Crie o arquivo ``.env`` na raiz do projeto e adicione a variável `EXPO_PUBLIC_API_URL` conforme o .env.exemple. Obs: É importante ser nesse padrão: ``http://SEU_IP_LOCAL:3333``, por exemplo:: `http://0.0.0.0:3333`.
 
-7. Para executar o servidor da API use o comando ``npm run server``.
+8. Para executar o servidor da API use o comando ``npm run server``.
 
 
 
 🚩 **Como executar o App:**
+
 1. Com o terminal aberto no diretório do projeto, execute o comando `npm i --force` para instalar as dependências.
+   
 2. Após a instalação, você deve rodar o projeto localmente usando o comando `npm start` e escolher as opções para execução a depender do ambiente. (Esse projeto também é compatível com o Expo Go.)
+   
 3. Caso queira executar o expo e limpar o cache, use `expo start -c` para executar e limpar o cache.
 
 ## 🗑️ Limpar Chache do EXPO - Windows
+
 Em algumas situações, vai ser necessário limpar o cache do EXPO, para isso, execute os seguintes passos ou confira a [documentação oficial](https://docs.expo.dev/troubleshooting/clear-cache-windows/):
 
 ```bash
