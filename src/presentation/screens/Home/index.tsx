@@ -4,6 +4,7 @@ import { styles } from "./styles"
 import { theme } from "@/presentation/theme"
 import { HomeHeader } from "./components/HomeHeader"
 import { SafeAreaView } from "react-native-safe-area-context"
+import { Stories } from "./components/Stories"
 
 export const HomeScreen = () => {
   return (
@@ -14,6 +15,7 @@ export const HomeScreen = () => {
       >
       <SafeAreaView style={{ flex: 1 }}>
         <HomeHeader />
+        <Stories />
       </SafeAreaView>
     </LinearGradient>
   )
