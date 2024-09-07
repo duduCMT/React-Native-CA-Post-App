@@ -52,6 +52,7 @@ export const TabBar = ({ state, descriptors, navigation }: TabBarProps) => {
                   isFocused={focused} 
                   onPress={onPress} 
                   onLongPress={onLongPress} 
+                  key={route.key}
                 />
               );
             })
@@ -74,6 +75,7 @@ export const TabBar = ({ state, descriptors, navigation }: TabBarProps) => {
                   onPress={onPress} 
                   onLongPress={onLongPress} 
                   type={"primary"}
+                  key={route.key}
                 />
               );
             })

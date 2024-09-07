@@ -24,15 +24,15 @@ export default function TabLayout() {
       tabBar={(props) => <TabBar {...props} />}
     >
       <Tabs.Screen
-        name="index" 
+        name="index"
         options={{
           icon: {
             pack: "material-community",
             name: "home-outline"
           }
-        } as CustomOptions} 
+        } as CustomOptions}
       />
-      <Tabs.Screen 
+      <Tabs.Screen
         name="search"
         options={{
           icon: {
@@ -41,8 +41,8 @@ export default function TabLayout() {
           }
         } as CustomOptions}
       />
-      <Tabs.Screen 
-        name="videos" 
+      <Tabs.Screen
+        name="videos"
         options={{
           icon: {
             pack: "material-community",
@@ -50,8 +50,8 @@ export default function TabLayout() {
           }
         } as CustomOptions}
       />
-      <Tabs.Screen 
-        name="addFriends" 
+      <Tabs.Screen
+        name="addFriends"
         options={{
           icon: {
             pack: "material",
@@ -59,14 +59,14 @@ export default function TabLayout() {
           }
         } as CustomOptions}
       />
-      <Tabs.Screen 
+      <Tabs.Screen
         name="add"
         options={{
           icon: {
             pack: "material-community",
             name: "plus"
           }
-        } as CustomOptions} 
+        } as CustomOptions}
         listeners={() => ({
           tabPress: (event) => {
             event.preventDefault();

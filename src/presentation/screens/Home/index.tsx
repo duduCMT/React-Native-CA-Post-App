@@ -2,6 +2,8 @@ import { LinearGradient } from "expo-linear-gradient"
 import { Text } from "react-native"
 import { styles } from "./styles"
 import { theme } from "@/presentation/theme"
+import { HomeHeader } from "./components/HomeHeader"
+import { SafeAreaView } from "react-native-safe-area-context"
 
 export const HomeScreen = () => {
   return (
@@ -9,8 +11,10 @@ export const HomeScreen = () => {
       colors={[theme.colors.primary[200], theme.colors.white]}
       locations={[ 0.1, 0.4 ]}
       style={styles.container}
-    >
-      <Text>Sign in with Facebook</Text>
+      >
+      <SafeAreaView style={{ flex: 1 }}>
+        <HomeHeader />
+      </SafeAreaView>
     </LinearGradient>
   )
 }
