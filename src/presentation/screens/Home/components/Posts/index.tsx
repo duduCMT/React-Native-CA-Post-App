@@ -3,15 +3,14 @@ import { View } from "react-native";
 
 import { Text } from "@/presentation/components/Text";
 import { Post } from "@/presentation/components/Posts/Post";
-import { RequestData, RequestStatus } from "@/presentation/types/request-status";
+import { RequestData } from "@/presentation/types/request-status";
 import { PostModel } from "@/domain/models/post.model";
-import { PostListUseCase } from "@/data/usecases/posts/post-list-usecase";
 
 import { PostsLoading } from "../PostsLoading";
 import { styles } from "./styles";
-import { POSTS } from "./mock";
+import { PostsProps } from "./types";
 
-export const Posts = () => {
+export const Posts = ({ postListUseCase }: PostsProps) => {
   const [posts, setPosts] = useState<RequestData<PostModel[]>>({ status: "none" });
 
   useEffect(() => {
@@ -21,7 +20,6 @@ export const Posts = () => {
   const requestPosts = async () => {
     setPosts({ status: "loading" });
     try {
-      const postListUseCase = new PostListUseCase();
       const result = await postListUseCase.list();
       setTimeout(() => setPosts({ status: "success", data: result }), 2000);
       

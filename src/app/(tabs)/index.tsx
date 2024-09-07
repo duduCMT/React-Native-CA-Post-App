@@ -1,5 +1,8 @@
+import { PostListUseCase } from "@/data/usecases/posts/post-list-usecase";
 import { HomeScreen } from "@/presentation/screens/Home";
 
 export default function Home() {
-  return <HomeScreen />;
+  const postListUseCase = new PostListUseCase();
+
+  return <HomeScreen postListUseCase={postListUseCase} />;
 };

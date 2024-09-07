@@ -1,13 +1,17 @@
 import { LinearGradient } from "expo-linear-gradient"
 import { ScrollView, Text, View } from "react-native"
-import { styles } from "./styles"
+
 import { theme } from "@/presentation/theme"
+
 import { HomeHeader } from "./components/HomeHeader"
 import { SafeAreaView } from "react-native-safe-area-context"
 import { Stories } from "./components/Stories"
 import { Posts } from "./components/Posts"
 
-export const HomeScreen = () => {
+import { styles } from "./styles"
+import { HomeProps } from "./types"
+
+export const HomeScreen = ({ postListUseCase }: HomeProps) => {
   return (
     <LinearGradient
       colors={[theme.colors.primary[100], theme.colors.primary[1], theme.colors.white]}
@@ -22,7 +26,7 @@ export const HomeScreen = () => {
           <HomeHeader />
           <View style={styles.content}>
             <Stories />
-            <Posts />
+            <Posts postListUseCase={postListUseCase} />
           </View>
         </ScrollView>
       </SafeAreaView>
