@@ -1,9 +1,12 @@
 import { useState } from "react";
-import { Text, View } from "react-native";
+import { FlatList, Text, View } from "react-native";
 import { TextButton } from "@/presentation/components/Buttons/TextButton";
 
 import { FilterSelection } from "./types";
 import { styles } from "./styles";
+import { STORIES } from "./mock";
+import { StoryItem } from "@/presentation/components/Stories/StoryItem";
+import { AddStoryButton } from "@/presentation/components/Stories/AddStoryButton";
 
 export const Stories = () => {
   const [filterSelection, setFilterSelection] = useState<FilterSelection>("followers");
@@ -30,6 +33,17 @@ export const Stories = () => {
           Discover
         </TextButton>
       </View>
+      <FlatList 
+        data={STORIES}
+        keyExtractor={item => item.id}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.listContentStyle}
+        ListHeaderComponent={() => <AddStoryButton />}
+        renderItem={({ item }) => (
+          <StoryItem icon={item.icon} id={item.id} image={item.image} />
+        )}
+      />
     </View>
   )
 }
