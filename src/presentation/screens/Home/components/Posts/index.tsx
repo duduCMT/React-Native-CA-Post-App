@@ -10,25 +10,7 @@ import { PostsLoading } from "../PostsLoading";
 import { styles } from "./styles";
 import { PostsProps } from "./types";
 
-export const Posts = ({ postListUseCase }: PostsProps) => {
-  const [posts, setPosts] = useState<RequestData<PostModel[]>>({ status: "none" });
-
-  useEffect(() => {
-    requestPosts();
-  }, []);
-
-  const requestPosts = async () => {
-    setPosts({ status: "loading" });
-    try {
-      const result = await postListUseCase.list();
-      setTimeout(() => setPosts({ status: "success", data: result }), 2000);
-      
-    } catch (error) {
-      console.error(error);
-      setPosts({ status: "error", error });
-    }
-  };
-
+export const Posts = ({ posts }: PostsProps) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Posts recentes</Text>

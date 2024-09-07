@@ -1,5 +1,6 @@
-import { IPostListRepository } from "@/domain/repositories/posts/post-list-repository"
+import { PostModel } from "@/domain/models/post.model";
+import { RequestData } from "@/presentation/types/request-status";
 
 export type PostsProps = {
-  postListUseCase: IPostListRepository;
+  posts: RequestData<PostModel[]>;
 };
