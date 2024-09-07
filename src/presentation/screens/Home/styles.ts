@@ -11,5 +11,6 @@ export const styles = StyleSheet.create({
   },
   scrollViewContent: {
     paddingBottom: TabBarConstants.ALL_TAB_BAR_HEIGHT + 16,
+    gap: 4,
   }
 });

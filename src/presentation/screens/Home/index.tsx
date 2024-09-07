@@ -10,8 +10,8 @@ import { Posts } from "./components/Posts"
 export const HomeScreen = () => {
   return (
     <LinearGradient
-      colors={[theme.colors.primary[200], theme.colors.primary[1]]}
-      locations={[ 0.1, 0.4 ]}
+      colors={[theme.colors.primary[100], theme.colors.primary[1], theme.colors.white]}
+      locations={[ 0.1, 0.4, 1 ]}
       style={styles.container}
     >
       <SafeAreaView style={{ flex: 1 }}>
