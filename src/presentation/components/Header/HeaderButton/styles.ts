@@ -12,10 +12,10 @@ export const styles = StyleSheet.create({
     gap: 4,
   },
   circleContainer: {
-    padding: 10,
+    padding: 8,
   },
   rectangleContainer: {
-    paddingVertical: 10,
+    paddingVertical: 8,
     paddingHorizontal: 16,
   },
   title: {

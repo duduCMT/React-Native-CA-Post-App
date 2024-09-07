@@ -1,10 +1,12 @@
-import { TouchableOpacity, View } from "react-native"
-import { HeaderButtonProps } from "./types"
-import { ExpoMaterialIcons } from "../ExpoMaterialIcons"
-import { useMemo } from "react"
-import { theme } from "@/presentation/theme"
-import { Text } from "@/presentation/components/Text"
-import { styles } from "./styles"
+import { useMemo } from "react";
+import { TouchableOpacity, View } from "react-native";
+
+import { theme } from "@/presentation/theme";
+import { ExpoMaterialIcons } from "@/presentation/components/ExpoMaterialIcons";
+import { Text } from "@/presentation/components/Text";
+
+import { styles } from "./styles";
+import { HeaderButtonProps } from "./types";
 
 
 export const HeaderButton = ({ icon, title, tintType = "dark", containerType = "circle", ...rest }: HeaderButtonProps) => {

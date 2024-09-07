@@ -6,4 +6,9 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 8,
   },
+  leftContent: {
+    flex: 1,
+    flexDirection: "row",
+    gap: 8,
+  }
 });
