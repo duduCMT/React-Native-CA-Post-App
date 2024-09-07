@@ -24,7 +24,8 @@ Projeto para prática e aprendizado das libs do Expo mais recentes (2023 e 2024)
 
 - [Expo Router](https://docs.expo.dev/router/introduction/)
 - [Expo Linear Gradient](https://docs.expo.dev/versions/latest/sdk/linear-gradient/)
-- [json-server](https://www.npmjs.com/package/json-server)
+- [React Native Testing Library](https://testing-library.com/docs/react-native-testing-library/intro/)
+- [Json Server](https://www.npmjs.com/package/json-server)
 
 ## 🔎 Instruções para rodar o projeto
 

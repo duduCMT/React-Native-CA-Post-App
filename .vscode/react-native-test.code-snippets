@@ -1,0 +1,65 @@
+{
+	"RN Button Test": {
+		"prefix": "trnb",
+		"scope": "javascriptreact,typescriptreact",
+		"body": [
+			"",
+			"import { fireEvent, render } from \"@testing-library/react-native\";",
+			"import { $1 } from \"..\";",
+			"",
+			"describe(\"$1\", () => {",
+			"  it(\"should render text correctly\", () => {",
+			"    const value = \"Click here\";",
+			"",
+			"    const { getByText } = render(<$1>{value}</ $1>);",
+			"",
+			"    const buttonTitle = getByText(value);",
+			"",
+			"    expect(buttonTitle).toBeTruthy();",
+			"  });",
+			"",
+			"  it('should call on press function', () => {",
+			"    const text = 'click here';",
+			"    const spy = jest.fn();",
+			"",
+			"    const {getByText} = render(",
+			"      <$1 onPress={spy}>{text}</$1>,",
+			"    );",
+			"",
+			"    const button = getByText(text);",
+			"",
+			"    fireEvent.press(button);",
+			"    expect(spy).toHaveBeenCalled();",
+			"  });",
+			"});",
+			"",
+			""
+		],
+		"description": "RN Button Test"
+	},
+	"RN Test Structure": {
+		"prefix": "rnt",
+		"scope": "javascriptreact,typescriptreact",
+		"body": [
+			"",
+			"import { fireEvent, render } from \"@testing-library/react-native\";",
+			"import { $1 } from \"..\";",
+			"",
+			"describe(\"$1\", () => {",
+			"  it(\"should render text correctly\", () => {",
+			"    const value = \"Click here\";",
+			"",
+			"    const { getByText } = render(<$1 />);",
+			"",
+			"    const buttonTitle = getByText(value);",
+			"",
+			"    expect(buttonTitle).toBeTruthy();",
+			"  });",
+			"});",
+			"",
+			""
+		],
+		"description": "RN Test Structure"
+	}
+}
+
