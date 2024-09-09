@@ -1,4 +1,4 @@
-import { PostListUseCase } from "@/data/usecases/posts/post-list-usecase";
+import { PostListUseCase } from "@/application/usecases/posts/post-list-usecase";
 import { AxiosHttpClient } from "@/infra/http-client/axios-http-client";
 import { HomeScreen } from "@/presentation/screens/Home";
 
