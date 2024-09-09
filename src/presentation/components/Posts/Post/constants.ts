@@ -1,0 +1,1 @@
+export const POST_COMPONENT_TEST_ID = "PostComponent";
