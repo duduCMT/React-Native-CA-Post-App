@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FlatList, View } from "react-native";
 import { TextButton } from "@/presentation/components/Buttons/TextButton";
 
@@ -8,11 +8,9 @@ import { StoryItem } from "@/presentation/components/Stories/StoryItem";
 import { AddStoryButton } from "@/presentation/components/Stories/AddStoryButton";
 import { StoryItemLoading } from "@/presentation/components/Stories/StoryItem/loading";
 
-export const Stories = ({ stories }: StoriesProps) => {
-  const [filterSelection, setFilterSelection] = useState<FilterSelection>("followers");
-
+export const Stories = ({ stories, filterSelection, onChangeFilter }: StoriesProps) => {
   const handleFilterSelection = (selection: FilterSelection) => {
-    setFilterSelection(selection);
+    onChangeFilter(selection);
   }
 
   return (

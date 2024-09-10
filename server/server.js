@@ -1,13 +1,13 @@
-const { posts, stories } = require('./database');
+const { posts, storiesFollowers, storiesDiscovery } = require('./database');
 
 
 module.exports = () => {
   const data = {
     posts,
-    stories,
   };
 
-  data.teste = { valor: "Olá mundo"};
+  data.discovery = storiesDiscovery;
+  data.followers = storiesFollowers;
 
   return data;
 }

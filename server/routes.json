@@ -1,3 +1,4 @@
 {
-  "/teste": "/teste"
+  "/stories/followers": "/followers",
+  "/stories/discovery": "/discovery"
 }

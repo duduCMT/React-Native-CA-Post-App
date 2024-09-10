@@ -1,8 +1,10 @@
 const posts = require('./posts');
-const stories = require('./stories');
+const storiesFollowers = require('./stories-followers');
+const storiesDiscovery = require('./stories-discovery');
 
 
 module.exports = {
   posts,
-  stories,
+  storiesFollowers,
+  storiesDiscovery,
 }

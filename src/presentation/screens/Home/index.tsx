@@ -13,11 +13,13 @@ import { Posts } from "./components/Posts"
 
 import { styles } from "./styles"
 import { HomeProps } from "./types";
+import { FilterSelection } from "./components/Stories/types";
 
 export const HomeScreen = ({ postListUseCase, storyListUseCase }: HomeProps) => {
   const [refreshing, setRefreshing] = useState(false);
   const [posts, setPosts] = useState<RequestData<PostModel[]>>({ status: "none" });
   const [stories, setStories] = useState<RequestData<StoryModel[]>>({ status: "none" });
+  const [filterSelection, setFilterSelection] = useState<FilterSelection>("followers");
 
   const requestPosts = useCallback(async () => {
     setPosts({ status: "loading" });
@@ -31,10 +33,12 @@ export const HomeScreen = ({ postListUseCase, storyListUseCase }: HomeProps) => 
     }
   }, [postListUseCase]);
 
-  const requestStories = useCallback(async () => {
+  const requestStories = useCallback(async (filterSelection: FilterSelection) => {
     setStories({ status: "loading" });
     try {
-      const { body } = await storyListUseCase.execute();
+      const { body } = filterSelection === "discover" 
+        ? await storyListUseCase.listDiscovery() 
+        : await storyListUseCase.listFollowers();
       setTimeout(() => setStories({ status: "success", data: body }), 2000);
       
     } catch (error) {
@@ -45,14 +49,22 @@ export const HomeScreen = ({ postListUseCase, storyListUseCase }: HomeProps) => 
 
   const onRefresh = useCallback(async () => {
     setRefreshing(true);
-    await Promise.all([requestPosts(), requestStories()]);
+    await Promise.all([requestPosts(), requestStories(filterSelection)]);
     setRefreshing(false);
-  }, [postListUseCase]);
+  }, [postListUseCase, filterSelection]);
+
+  const onChangeFilter = (selection: FilterSelection) => {
+    console.log(selection);
+    setFilterSelection(selection);
+  }
 
   useEffect(() => {
     requestPosts();
-    requestStories();
   }, []);
+
+  useEffect(() => {
+    requestStories(filterSelection);
+  }, [filterSelection]);
 
   return (
     <LinearGradient
@@ -68,7 +80,11 @@ export const HomeScreen = ({ postListUseCase, storyListUseCase }: HomeProps) => 
         >
           <HomeHeader />
           <View style={styles.content}>
-            <Stories stories={stories} />
+            <Stories 
+              filterSelection={filterSelection} 
+              onChangeFilter={onChangeFilter}  
+              stories={stories} 
+            />
             <Posts posts={posts} />
           </View>
         </ScrollView>
