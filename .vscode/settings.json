@@ -42,6 +42,7 @@
       "sections": "layout",
       "styled-components": "theme",
       "forms": "docs",
+      "application": "controller"
     },
     "java.configuration.updateBuildConfiguration": "interactive"
   }

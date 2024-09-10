@@ -1,22 +1,23 @@
-import { LinearGradient } from "expo-linear-gradient"
-import { RefreshControl, ScrollView, Text, View } from "react-native"
+import { useCallback, useEffect, useState } from "react";
+import { RefreshControl, ScrollView, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { LinearGradient } from "expo-linear-gradient";
 
-import { theme } from "@/presentation/theme"
+import { theme } from "@/presentation/theme";
+import { RequestData } from "@/presentation/types/request-status";
+import { PostModel, StoryModel } from "@/domain/models";
 
-import { HomeHeader } from "./components/HomeHeader"
-import { SafeAreaView } from "react-native-safe-area-context"
+import { HomeHeader } from "./components/HomeHeader";
 import { Stories } from "./components/Stories"
 import { Posts } from "./components/Posts"
 
 import { styles } from "./styles"
-import { HomeProps } from "./types"
-import { useCallback, useEffect, useState } from "react"
-import { RequestData } from "@/presentation/types/request-status"
-import { PostModel } from "@/domain/models/post.model"
+import { HomeProps } from "./types";
 
-export const HomeScreen = ({ postListUseCase }: HomeProps) => {
+export const HomeScreen = ({ postListUseCase, storyListUseCase }: HomeProps) => {
   const [refreshing, setRefreshing] = useState(false);
   const [posts, setPosts] = useState<RequestData<PostModel[]>>({ status: "none" });
+  const [stories, setStories] = useState<RequestData<StoryModel[]>>({ status: "none" });
 
   const requestPosts = useCallback(async () => {
     setPosts({ status: "loading" });
@@ -30,14 +31,27 @@ export const HomeScreen = ({ postListUseCase }: HomeProps) => {
     }
   }, [postListUseCase]);
 
+  const requestStories = useCallback(async () => {
+    setStories({ status: "loading" });
+    try {
+      const { body } = await storyListUseCase.execute();
+      setTimeout(() => setStories({ status: "success", data: body }), 2000);
+      
+    } catch (error) {
+      console.error(error);
+      setPosts({ status: "error", error });
+    }
+  }, [storyListUseCase]);
+
   const onRefresh = useCallback(async () => {
     setRefreshing(true);
-    await requestPosts();
+    await Promise.all([requestPosts(), requestStories()]);
     setRefreshing(false);
   }, [postListUseCase]);
 
   useEffect(() => {
     requestPosts();
+    requestStories();
   }, []);
 
   return (
@@ -54,7 +68,7 @@ export const HomeScreen = ({ postListUseCase }: HomeProps) => {
         >
           <HomeHeader />
           <View style={styles.content}>
-            <Stories />
+            <Stories stories={stories} />
             <Posts posts={posts} />
           </View>
         </ScrollView>

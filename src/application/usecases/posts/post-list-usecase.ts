@@ -1,4 +1,4 @@
-import { PostModel } from "@/domain/models/post.model";
+import { PostModel } from "@/domain/models";
 import { HttpResponse, IHttpClient } from "@/domain/gateways/http-client";
 import { HttpUseCase } from "@/domain/ports/http-use-case";
 

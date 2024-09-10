@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { FlatList, Text, View } from "react-native";
+import { FlatList, View } from "react-native";
 import { TextButton } from "@/presentation/components/Buttons/TextButton";
 
-import { FilterSelection } from "./types";
+import { FilterSelection, StoriesProps } from "./types";
 import { styles } from "./styles";
-import { STORIES } from "./mock";
 import { StoryItem } from "@/presentation/components/Stories/StoryItem";
 import { AddStoryButton } from "@/presentation/components/Stories/AddStoryButton";
+import { StoryItemLoading } from "@/presentation/components/Stories/StoryItem/loading";
 
-export const Stories = () => {
+export const Stories = ({ stories }: StoriesProps) => {
   const [filterSelection, setFilterSelection] = useState<FilterSelection>("followers");
 
   const handleFilterSelection = (selection: FilterSelection) => {
@@ -33,17 +33,38 @@ export const Stories = () => {
           Discover
         </TextButton>
       </View>
-      <FlatList 
-        data={STORIES}
-        keyExtractor={item => item.id}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.listContentStyle}
-        ListHeaderComponent={() => <AddStoryButton />}
-        renderItem={({ item }) => (
-          <StoryItem icon={item.icon} id={item.id} image={item.image} />
-        )}
-      />
+
+      {
+        stories.status === "loading" ? (
+          <FlatList 
+            data={Array.from({ length: 5 }).map((_, index) => ({ id: index }))}
+            keyExtractor={item => item.id.toString()}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.listContentStyle}
+            ListHeaderComponent={() => <AddStoryButton />}
+            renderItem={({ item }) => (
+              <StoryItemLoading key={item.id} />
+            )}
+          />
+        ) : null 
+      }
+        
+      { 
+        stories.status === "success" && stories.data ? (
+          <FlatList 
+            data={stories.data}
+            keyExtractor={item => item.id}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.listContentStyle}
+            ListHeaderComponent={() => <AddStoryButton />}
+            renderItem={({ item }) => (
+              <StoryItem icon={item.icon} id={item.id} image={item.image} />
+            )}
+          />
+        ) : null
+      }
     </View>
   )
 }

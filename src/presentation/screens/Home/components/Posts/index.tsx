@@ -3,8 +3,6 @@ import { View } from "react-native";
 
 import { Text } from "@/presentation/components/Text";
 import { Post } from "@/presentation/components/Posts/Post";
-import { RequestData } from "@/presentation/types/request-status";
-import { PostModel } from "@/domain/models/post.model";
 
 import { PostsLoading } from "../PostsLoading";
 import { styles } from "./styles";

@@ -3,4 +3,5 @@ import { HttpUseCase } from "@/domain/ports";
 
 export type HomeProps = {
   postListUseCase: HttpUseCase<void, PostModel[]>;
+  storyListUseCase: HttpUseCase<void, StoryModel[]>;
 };
