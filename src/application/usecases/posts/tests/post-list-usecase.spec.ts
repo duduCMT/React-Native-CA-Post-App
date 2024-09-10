@@ -12,13 +12,13 @@ function makeSut({ axiosHttpClientMock = new AxiosHttpClientMock() }: SutParams 
   return { sut, axiosHttpClientMock };
 }
 
-describe("Post List Use Case", () => {
+describe("PostListUseCase", () => {
   it("should return list method with correct method", async () => {
     const axiosHttpClientMock = new AxiosHttpClientMock();
     axiosHttpClientMock.response = { statusCode: 200, body: postListMock() };
     
     const { sut } = makeSut({ axiosHttpClientMock });
-    await sut.list();
+    await sut.execute();
     
     expect(axiosHttpClientMock.method).toBe("get");
   });
@@ -28,7 +28,7 @@ describe("Post List Use Case", () => {
     axiosHttpClientMock.response = { statusCode: 200, body: postListMock() };
     
     const { sut } = makeSut({ axiosHttpClientMock });
-    await sut.list();
+    await sut.execute();
     
     expect(axiosHttpClientMock.url).toBe("/posts");
   });

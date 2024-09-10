@@ -21,7 +21,7 @@ export const HomeScreen = ({ postListUseCase }: HomeProps) => {
   const requestPosts = useCallback(async () => {
     setPosts({ status: "loading" });
     try {
-      const { body } = await postListUseCase.list();
+      const { body } = await postListUseCase.execute();
       setTimeout(() => setPosts({ status: "success", data: body }), 2000);
       
     } catch (error) {

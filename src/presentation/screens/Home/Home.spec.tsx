@@ -3,7 +3,7 @@ import { HomeScreen } from ".";
 
 import { postListMock } from "@/application/mocks/posts/post-list-mock";
 import { POST_COMPONENT_TEST_ID } from "@/presentation/components/Posts/Post/constants";
-import { PostListUseCaseMock } from "@/application/usecases/posts/post-list-usecase-mock";
+import { PostListUseCaseMock } from "@/application/usecases/posts/mocks/post-list-usecase-mock";
 
 function makeSut() {
   const posts = postListMock();

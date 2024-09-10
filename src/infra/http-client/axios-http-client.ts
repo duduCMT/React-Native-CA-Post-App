@@ -20,6 +20,7 @@ export class AxiosHttpClient implements IHttpClient {
     } catch (error: any) {
       axiosResponse = error.response;
     }
+    console.log(axiosResponse);
     return {
       statusCode: axiosResponse.status,
       body: axiosResponse.data,

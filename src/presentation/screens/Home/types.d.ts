@@ -1,3 +1,6 @@
+import { PostModel } from "@/domain/models";
+import { HttpUseCase } from "@/domain/ports";
+
 export type HomeProps = {
-  postListUseCase: IPostListRepository;
+  postListUseCase: HttpUseCase<void, PostModel[]>;
 };
